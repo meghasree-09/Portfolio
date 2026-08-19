@@ -1,108 +1,163 @@
 import { useState } from "react";
+import { sendContactMessage } from "../api/contactApi";
 
 function Contact() {
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     name: "",
     email: "",
     subject: "",
     message: ""
   });
 
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setForm({
+      ...form,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    setSending(true);
+    setSuccess("");
+    setError("");
 
-    alert("Message submitted successfully!");
+    try {
+      await sendContactMessage(form);
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
+      setSuccess("Your message has been sent successfully!");
+
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error(error);
+
+      setError(
+        error.response?.data?.message ||
+        "Something went wrong. Please try again."
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <div className="section contact-section">
+
       <div className="section-title">
         <p>GET IN TOUCH</p>
-        <h2>Contact <span>Me</span></h2>
+
+        <h2>
+          Contact <span>Me</span>
+        </h2>
       </div>
 
       <div className="contact-container">
+
         <div className="contact-info">
-          <h3>Let's work together</h3>
+
+          <h3>
+            Let's build something together.
+          </h3>
 
           <p>
-            Have a project, opportunity or just want to say hello?
-            Feel free to reach out.
+            I'm always open to discussing new projects,
+            opportunities and ideas.
           </p>
 
-          <div className="contact-item">
-            <strong>Email</strong>
-            <span>your-email@example.com</span>
+          <div className="contact-detail">
+            <span>Email</span>
+            <strong>your-email@example.com</strong>
           </div>
 
-          <div className="contact-item">
-            <strong>Location</strong>
-            <span>India</span>
+          <div className="contact-detail">
+            <span>Location</span>
+            <strong>India</strong>
           </div>
 
-          <div className="contact-item">
-            <strong>Available for</strong>
-            <span>Internships & Full-time Opportunities</span>
+          <div className="contact-detail">
+            <span>Availability</span>
+            <strong>Open to Opportunities</strong>
           </div>
+
         </div>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+        <form
+          className="contact-form"
+          onSubmit={handleSubmit}
+        >
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+          <div className="form-row">
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+
+          </div>
 
           <input
             type="text"
             name="subject"
             placeholder="Subject"
-            value={formData.subject}
+            value={form.subject}
             onChange={handleChange}
             required
           />
 
           <textarea
             name="message"
-            placeholder="Your Message"
             rows="6"
-            value={formData.message}
+            placeholder="Your Message"
+            value={form.message}
             onChange={handleChange}
             required
-          ></textarea>
+          />
 
-          <button type="submit" className="primary-btn">
-            Send Message
+          <button
+            className="primary-btn"
+            type="submit"
+            disabled={sending}
+          >
+            {sending ? "Sending..." : "Send Message →"}
           </button>
+
+          {success && (
+            <p className="success-message">
+              {success}
+            </p>
+          )}
+
+          {error && (
+            <p className="error-message">
+              {error}
+            </p>
+          )}
+
         </form>
+
       </div>
     </div>
   );
