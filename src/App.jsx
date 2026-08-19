@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -7,13 +9,16 @@ import Education from "./components/Education";
 import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ViewProject from "./components/ViewProject";
 
-function App() {
+
+function Home() {
   return (
     <>
       <Navbar />
 
       <main>
+
         <section id="home">
           <Hero />
         </section>
@@ -41,10 +46,33 @@ function App() {
         <section id="contact">
           <Contact />
         </section>
+
       </main>
 
       <Footer />
     </>
+  );
+}
+
+
+function App() {
+  return (
+    <BrowserRouter>
+
+      <Routes>
+
+        {/* Main Portfolio */}
+        <Route path="/" element={<Home />} />
+
+        {/* Individual Project */}
+        <Route
+          path="/project/:id"
+          element={<ViewProject />}
+        />
+
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 
