@@ -10,6 +10,8 @@ import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ViewProject from "./components/ViewProject";
+import AdminDashboard from "./components/AdminDashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 function Home() {
@@ -69,6 +71,16 @@ function App() {
           path="/project/:id"
           element={<ViewProject />}
         />
+
+        <Route
+  path="/admin/dashboard"
+  element={<AdminDashboard />}
+/>
+
+<Route
+  path="/admin/dashboard"
+  element={<AdminDashboard />}
+/>
 
       </Routes>
 
