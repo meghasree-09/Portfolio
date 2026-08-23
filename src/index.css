@@ -1060,3 +1060,919 @@ textarea {
     width: 100%;
   }
 }
+/* ============================= */
+/* ADMIN LOGIN */
+/* ============================= */
+
+.admin-login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(37, 99, 235, 0.18),
+      transparent 35%
+    ),
+    #050b18;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 45px;
+  background: rgba(10, 20, 36, 0.95);
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+.admin-login-card > p {
+  margin-bottom: 10px;
+  color: #60a5fa;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.admin-login-card h1 {
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+
+.admin-login-card h1 span {
+  color: #60a5fa;
+}
+
+.admin-login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-login-card label {
+  margin-top: 12px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.admin-login-card input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  border: 1px solid #263b57;
+  border-radius: 9px;
+  outline: none;
+  background: #07101f;
+  color: white;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.admin-login-card input::placeholder {
+  color: #64748b;
+}
+
+.admin-login-card input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.admin-login-button {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.login-error {
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 7px;
+  background: rgba(127, 29, 29, 0.2);
+  color: #f87171;
+  font-size: 14px;
+}
+
+
+/* ============================= */
+/* ADMIN DASHBOARD */
+/* ============================= */
+
+.admin-dashboard {
+  min-height: 100vh;
+  padding: 45px 7%;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(37, 99, 235, 0.12),
+      transparent 30%
+    ),
+    #050b18;
+  color: white;
+}
+
+.admin-header {
+  max-width: 1150px;
+  margin: 0 auto 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 25px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.admin-header p {
+  margin-bottom: 8px;
+  color: #60a5fa;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.admin-header h1 {
+  font-size: 38px;
+  margin: 0;
+}
+
+
+/* Dashboard content */
+
+.admin-content {
+  max-width: 1150px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 30px;
+}
+
+
+/* Cards */
+
+.admin-form-card,
+.admin-projects {
+  padding: 30px;
+
+  background: rgba(10, 20, 36, 0.9);
+
+  border: 1px solid #1e3a5f;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.admin-form-card h2,
+.admin-projects h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+
+/* Form */
+
+.admin-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-form-card input,
+.admin-form-card textarea {
+  width: 100%;
+  padding: 14px 15px;
+
+  box-sizing: border-box;
+
+  background: #07101f;
+  color: white;
+
+  border: 1px solid #263b57;
+  border-radius: 9px;
+
+  outline: none;
+
+  font-family: inherit;
+}
+
+.admin-form-card input:focus,
+.admin-form-card textarea:focus {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+.admin-form-card textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.admin-form-card input::placeholder,
+.admin-form-card textarea::placeholder {
+  color: #64748b;
+}
+
+
+/* Form buttons */
+
+.admin-form-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+
+/* Success/error message */
+
+.admin-message {
+  margin-top: 18px;
+  padding: 12px 15px;
+
+  border-radius: 8px;
+
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+
+  color: #4ade80;
+  font-size: 14px;
+}
+
+
+/* Project list */
+
+.admin-projects {
+  max-height: 650px;
+  overflow-y: auto;
+}
+
+.admin-project-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding: 20px 0;
+
+  border-bottom: 1px solid #1e293b;
+}
+
+.admin-project-card:last-child {
+  border-bottom: none;
+}
+
+.admin-project-card h3 {
+  margin: 0 0 7px;
+  font-size: 17px;
+}
+
+.admin-project-card p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* Project buttons */
+
+.admin-project-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 13px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  transition: 0.2s ease;
+}
+
+.edit-btn {
+  border: 1px solid #2563eb;
+  background: transparent;
+  color: #60a5fa;
+}
+
+.edit-btn:hover {
+  background: #172554;
+}
+
+.delete-btn {
+  border: 1px solid #7f1d1d;
+  background: transparent;
+  color: #f87171;
+}
+
+.delete-btn:hover {
+  background: #450a0a;
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 850px) {
+
+  .admin-content {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-projects {
+    max-height: none;
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .admin-dashboard {
+    padding: 30px 5%;
+  }
+
+  .admin-login-page {
+    padding: 20px;
+  }
+
+  .admin-login-card {
+    padding: 30px 25px;
+  }
+
+  .admin-login-card h1 {
+    font-size: 30px;
+  }
+
+  .admin-header {
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .admin-header h1 {
+    font-size: 30px;
+  }
+
+  .admin-project-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-project-actions {
+    width: 100%;
+  }
+
+  .admin-project-actions button {
+    flex: 1;
+  }
+
+}
+/* =====================================================
+   ADMIN LOGIN
+===================================================== */
+
+.admin-login-page {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(37, 99, 235, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(124, 58, 237, 0.12),
+      transparent 35%
+    ),
+    #050b18;
+
+  box-sizing: border-box;
+}
+
+
+.admin-login-card {
+  width: 100%;
+  max-width: 430px;
+
+  padding: 45px;
+
+  background: rgba(10, 20, 36, 0.95);
+
+  border: 1px solid rgba(96, 165, 250, 0.25);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(12px);
+}
+
+
+.admin-login-card > p {
+  margin: 0 0 10px;
+
+  color: #60a5fa;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+
+.admin-login-card h1 {
+  margin: 0 0 30px;
+
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+
+.admin-login-card h1 span {
+  color: #60a5fa;
+}
+
+
+.admin-login-card form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+.admin-login-card input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  box-sizing: border-box;
+
+  background: #07101f;
+
+  color: white;
+
+  border: 1px solid #263b57;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  font-size: 14px;
+}
+
+
+.admin-login-card input::placeholder {
+  color: #64748b;
+}
+
+
+.admin-login-card input:focus {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+
+/* Login button */
+
+.admin-login-button {
+  width: 100%;
+
+  margin-top: 8px;
+}
+
+
+/* Login error */
+
+.login-error {
+  margin: 0;
+
+  padding: 11px 14px;
+
+  border-radius: 8px;
+
+  background: rgba(127, 29, 29, 0.2);
+
+  border: 1px solid rgba(248, 113, 113, 0.2);
+
+  color: #f87171;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   ADMIN DASHBOARD
+===================================================== */
+
+.admin-dashboard {
+  min-height: 100vh;
+
+  padding: 45px 7%;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(37, 99, 235, 0.12),
+      transparent 30%
+    ),
+    #050b18;
+
+  color: white;
+
+  box-sizing: border-box;
+}
+
+
+/* Header */
+
+.admin-header {
+  max-width: 1150px;
+
+  margin: 0 auto 40px;
+
+  padding-bottom: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid #1e293b;
+}
+
+
+.admin-header p {
+  margin: 0 0 8px;
+
+  color: #60a5fa;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+
+.admin-header h1 {
+  margin: 0;
+
+  font-size: 38px;
+}
+
+
+/* Dashboard content */
+
+.admin-content {
+  max-width: 1150px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 30px;
+}
+
+
+/* =====================================================
+   ADMIN CARDS
+===================================================== */
+
+.admin-form-card,
+.admin-projects {
+  padding: 30px;
+
+  background: rgba(10, 20, 36, 0.92);
+
+  border: 1px solid #1e3a5f;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+.admin-form-card h2,
+.admin-projects h2 {
+  margin: 0 0 25px;
+
+  font-size: 22px;
+}
+
+
+/* =====================================================
+   ADMIN FORM
+===================================================== */
+
+.admin-form-card form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+.admin-form-card input,
+.admin-form-card textarea {
+  width: 100%;
+
+  padding: 14px 15px;
+
+  box-sizing: border-box;
+
+  background: #07101f;
+
+  color: white;
+
+  border: 1px solid #263b57;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size: 14px;
+}
+
+
+.admin-form-card input::placeholder,
+.admin-form-card textarea::placeholder {
+  color: #64748b;
+}
+
+
+.admin-form-card input:focus,
+.admin-form-card textarea:focus {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+
+.admin-form-card textarea {
+  min-height: 130px;
+
+  resize: vertical;
+}
+
+
+/* =====================================================
+   ADMIN FORM BUTTONS
+===================================================== */
+
+.admin-form-buttons {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 8px;
+}
+
+
+/* =====================================================
+   ADMIN MESSAGE
+===================================================== */
+
+.admin-message {
+  margin-top: 18px;
+
+  padding: 12px 15px;
+
+  border-radius: 8px;
+
+  background: rgba(34, 197, 94, 0.08);
+
+  border: 1px solid rgba(34, 197, 94, 0.2);
+
+  color: #4ade80;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   PROJECT LIST
+===================================================== */
+
+.admin-projects {
+  max-height: 650px;
+
+  overflow-y: auto;
+}
+
+
+.admin-project-card {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 20px 0;
+
+  border-bottom: 1px solid #1e293b;
+}
+
+
+.admin-project-card:last-child {
+  border-bottom: none;
+}
+
+
+.admin-project-card h3 {
+  margin: 0 0 7px;
+
+  font-size: 17px;
+}
+
+
+.admin-project-card p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   PROJECT ACTIONS
+===================================================== */
+
+.admin-project-actions {
+  display: flex;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+}
+
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 13px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  transition: 0.2s ease;
+}
+
+
+.edit-btn {
+  border: 1px solid #2563eb;
+
+  background: transparent;
+
+  color: #60a5fa;
+}
+
+
+.edit-btn:hover {
+  background: #172554;
+
+  transform: translateY(-1px);
+}
+
+
+.delete-btn {
+  border: 1px solid #7f1d1d;
+
+  background: transparent;
+
+  color: #f87171;
+}
+
+
+.delete-btn:hover {
+  background: #450a0a;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   ADMIN LOGOUT
+===================================================== */
+
+.admin-logout-btn {
+  padding: 10px 18px;
+
+  border: 1px solid #334155;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #cbd5e1;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+
+.admin-logout-btn:hover {
+  border-color: #60a5fa;
+
+  color: #60a5fa;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+
+  .admin-content {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-projects {
+    max-height: none;
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .admin-login-page {
+    padding: 20px;
+  }
+
+  .admin-login-card {
+    padding: 30px 25px;
+  }
+
+  .admin-login-card h1 {
+    font-size: 30px;
+  }
+
+  .admin-dashboard {
+    padding: 30px 5%;
+  }
+
+  .admin-header {
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .admin-header h1 {
+    font-size: 30px;
+  }
+
+  .admin-project-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .admin-project-actions {
+    width: 100%;
+  }
+
+  .admin-project-actions button {
+    flex: 1;
+  }
+
+}
