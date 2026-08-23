@@ -9,12 +9,14 @@ import Education from "./components/Education";
 import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+
 import ViewProject from "./components/ViewProject";
+import AdminLogin from "./components/AdminLogin";
 import AdminDashboard from "./components/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 
-function Home() {
+function PortfolioHome() {
   return (
     <>
       <Navbar />
@@ -63,24 +65,40 @@ function App() {
 
       <Routes>
 
-        {/* Main Portfolio */}
-        <Route path="/" element={<Home />} />
+        {/* PUBLIC PORTFOLIO */}
 
-        {/* Individual Project */}
+        <Route
+          path="/"
+          element={<PortfolioHome />}
+        />
+
+
+        {/* PROJECT DETAILS */}
+
         <Route
           path="/project/:id"
           element={<ViewProject />}
         />
 
-        <Route
-  path="/admin/dashboard"
-  element={<AdminDashboard />}
-/>
 
-<Route
-  path="/admin/dashboard"
-  element={<AdminDashboard />}
-/>
+        {/* ADMIN LOGIN */}
+
+        <Route
+          path="/admin/login"
+          element={<AdminLogin />}
+        />
+
+
+        {/* ADMIN DASHBOARD */}
+
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
 
       </Routes>
 
